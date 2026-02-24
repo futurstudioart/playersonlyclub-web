@@ -52,10 +52,11 @@ export default function Home() {
             </p>
 
             <h1 className="mt-6 text-5xl md:text-6xl font-semibold tracking-tight leading-[1.02]">
-              <span className="bg-gradient-to-b from-neutral-700 via-neutral-300 to-neutral-800 bg-clip-text text-transparent">
-                Players Only Club
-              </span>
-            </h1>
+  <span className="relative inline-block bg-gradient-to-b from-[#111111] via-[#2f2f2f] to-[#080808] bg-clip-text text-transparent">
+    Players Only Club
+    <span className="absolute inset-0 bg-gradient-to-t from-white/30 via-white/10 to-transparent bg-clip-text text-transparent opacity-50 pointer-events-none" />
+  </span>
+</h1>
 
             <p className="mt-4 text-[11px] tracking-[0.45em] uppercase text-neutral-500">
               Virtus in ludo
