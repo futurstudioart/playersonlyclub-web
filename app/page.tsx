@@ -10,10 +10,30 @@ export default function Home() {
         <section className="hero">
           <div className="seal fade" style={{ animationDelay: "80ms" }}>
             {/* Must exist at: /public/poc-logo.jpeg */}
-            <img src="/poc-logo.jpeg?v=2" alt="Players Only Club crest" />
+            <img
+              src="/poc-logo.jpeg?v=2"
+              alt="Players Only Club crest"
+              onError={(e) => {
+                // Helps debug path/case issues on Vercel
+                const img = e.currentTarget;
+                img.style.display = "none";
+                const parent = img.parentElement;
+                if (parent && !parent.querySelector("[data-logo-fallback]")) {
+                  const note = document.createElement("div");
+                  note.setAttribute("data-logo-fallback", "true");
+                  note.style.marginTop = "10px";
+                  note.style.fontSize = "12px";
+                  note.style.letterSpacing = ".12em";
+                  note.style.opacity = "0.8";
+                  note.innerText =
+                    "Logo failed to load. Confirm the file exists at /public/poc-logo.jpeg (exact name + case).";
+                  parent.appendChild(note);
+                }
+              }}
+            />
           </div>
 
-          <div className="title fade" style={{ animationDelay: "160ms" }}>
+          <div className="title engravedGold fade" style={{ animationDelay: "160ms" }}>
             PLAYERS ONLY CLUB
           </div>
 
@@ -31,7 +51,7 @@ export default function Home() {
         {/* THE STANDARD */}
         <section className="section" id="standard">
           <div className="sectionHead">
-            <h2>The Standard</h2>
+            <h2 className="engravedGold">The Standard</h2>
             <p className="kicker">Society • Discipline • Craft</p>
           </div>
           <p className="prose">
@@ -46,7 +66,7 @@ export default function Home() {
         {/* PERFORMANCE ADVISORY */}
         <section className="section" id="advisory">
           <div className="sectionHead">
-            <h2>Performance Advisory</h2>
+            <h2 className="engravedGold">Performance Advisory</h2>
             <p className="kicker">Digital Presence</p>
           </div>
           <p className="prose">
@@ -121,7 +141,7 @@ export default function Home() {
         {/* MEMBERSHIP */}
         <section className="section" id="membership">
           <div className="sectionHead">
-            <h2>Membership</h2>
+            <h2 className="engravedGold">Membership</h2>
             <p className="kicker">Standing within the club</p>
           </div>
           <p className="prose">
@@ -169,7 +189,7 @@ export default function Home() {
         {/* TRAINING */}
         <section className="section" id="programs">
           <div className="sectionHead">
-            <h2>Training &amp; Programs</h2>
+            <h2 className="engravedGold">Training &amp; Programs</h2>
             <p className="kicker">On-court presence</p>
           </div>
           <p className="prose">
@@ -199,7 +219,7 @@ export default function Home() {
         {/* CONSIDERATION */}
         <section className="section" id="consideration">
           <div className="sectionHead">
-            <h2>Request Consideration</h2>
+            <h2 className="engravedGold">Request Consideration</h2>
             <p className="kicker">Invitation • Merit</p>
           </div>
           <p className="prose">
@@ -207,7 +227,7 @@ export default function Home() {
             of the club will respond with next steps.
           </p>
 
-          {/* No onSubmit handler here (server-safe). We'll keep it static-styled. */}
+          {/* Static form (server-safe). Wire later to email/CRM. */}
           <form className="form" action="#" method="post">
             <input name="name" placeholder="Full Name" required />
             <input name="email" type="email" placeholder="Email" required />
