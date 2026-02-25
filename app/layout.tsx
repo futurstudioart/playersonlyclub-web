@@ -1,19 +1,20 @@
 import "./globals.css";
-import { Bodoni_Moda, Manrope } from "next/font/google";
-
-const bodoni = Bodoni_Moda({
-  subsets: ["latin"],
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
+import type { Metadata } from "next";
+import { Manrope, Bodoni_Moda } from "next/font/google";
 
 const manrope = Manrope({
   subsets: ["latin"],
   display: "swap",
-  weight: ["300", "400", "500"],
+  variable: "--font-sans",
 });
 
-export const metadata = {
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-display",
+});
+
+export const metadata: Metadata = {
   title: "Players Only Club",
   description: "Players Only Club — Virtus in ludo. A luxury performance society.",
 };
@@ -21,9 +22,7 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${manrope.className} ${bodoni.variable}`}>
-        {children}
-      </body>
+      <body className={`${manrope.variable} ${bodoni.variable}`}>{children}</body>
     </html>
   );
 }
