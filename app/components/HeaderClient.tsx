@@ -3,12 +3,12 @@
 import { useCallback } from "react";
 
 export default function HeaderClient() {
-  const toggleMobile = useCallback(() => {
+  const toggleMenu = useCallback(() => {
     const panel = document.getElementById("mobilePanel");
     panel?.classList.toggle("open");
   }, []);
 
-  const closeMobile = useCallback(() => {
+  const closeMenu = useCallback(() => {
     const panel = document.getElementById("mobilePanel");
     panel?.classList.remove("open");
   }, []);
@@ -16,7 +16,7 @@ export default function HeaderClient() {
   return (
     <header className="header">
       <div className="nav">
-        <a className="brand" href="#top" onClick={closeMobile}>
+        <a className="brand" href="#top" onClick={closeMenu}>
           Players Only Club
         </a>
 
@@ -29,7 +29,7 @@ export default function HeaderClient() {
         </nav>
 
         <div className="navcta">
-          <a className="pill" href="#consideration">
+          <a className="pill" href="#consideration" onClick={closeMenu}>
             Request Consideration
           </a>
 
@@ -37,7 +37,7 @@ export default function HeaderClient() {
             className="menuBtn"
             type="button"
             aria-label="Open menu"
-            onClick={toggleMobile}
+            onClick={toggleMenu}
           >
             Menu
           </button>
@@ -45,19 +45,19 @@ export default function HeaderClient() {
       </div>
 
       <div className="mobilePanel" id="mobilePanel" aria-label="Mobile Menu">
-        <a href="#standard" onClick={closeMobile}>
+        <a href="#standard" onClick={closeMenu}>
           Philosophy
         </a>
-        <a href="#advisory" onClick={closeMobile}>
+        <a href="#advisory" onClick={closeMenu}>
           Analysis
         </a>
-        <a href="#membership" onClick={closeMobile}>
+        <a href="#membership" onClick={closeMenu}>
           Membership
         </a>
-        <a href="#programs" onClick={closeMobile}>
+        <a href="#programs" onClick={closeMenu}>
           Training
         </a>
-        <a href="#consideration" onClick={closeMobile}>
+        <a href="#consideration" onClick={closeMenu}>
           Contact
         </a>
       </div>
