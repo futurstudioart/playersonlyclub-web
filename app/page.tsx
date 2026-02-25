@@ -1,4 +1,5 @@
 import HeaderClient from "./components/HeaderClient";
+import LogoClient from "./components/LogoClient";
 
 export default function Home() {
   return (
@@ -10,27 +11,7 @@ export default function Home() {
         <section className="hero">
           <div className="seal fade" style={{ animationDelay: "80ms" }}>
             {/* Must exist at: /public/poc-logo.jpeg */}
-            <img
-              src="/poc-logo.jpeg?v=2"
-              alt="Players Only Club crest"
-              onError={(e) => {
-                // Helps debug path/case issues on Vercel
-                const img = e.currentTarget;
-                img.style.display = "none";
-                const parent = img.parentElement;
-                if (parent && !parent.querySelector("[data-logo-fallback]")) {
-                  const note = document.createElement("div");
-                  note.setAttribute("data-logo-fallback", "true");
-                  note.style.marginTop = "10px";
-                  note.style.fontSize = "12px";
-                  note.style.letterSpacing = ".12em";
-                  note.style.opacity = "0.8";
-                  note.innerText =
-                    "Logo failed to load. Confirm the file exists at /public/poc-logo.jpeg (exact name + case).";
-                  parent.appendChild(note);
-                }
-              }}
-            />
+            <LogoClient />
           </div>
 
           <div className="title engravedGold fade" style={{ animationDelay: "160ms" }}>
@@ -55,11 +36,11 @@ export default function Home() {
             <p className="kicker">Society • Discipline • Craft</p>
           </div>
           <p className="prose">
-            Players Only Club exists as a private environment dedicated to
-            discipline, refinement, and excellence in the game. Performance is
-            shaped through presence, awareness, and deliberate practice—where
-            every detail matters and progress is measured by commitment to the
-            craft. Entry is not defined by status, but by intention.
+            Players Only Club exists as a private environment dedicated to discipline,
+            refinement, and excellence in the game. Performance is shaped through
+            presence, awareness, and deliberate practice—where every detail matters
+            and progress is measured by commitment to the craft. Entry is not defined
+            by status, but by intention.
           </p>
         </section>
 
@@ -70,16 +51,16 @@ export default function Home() {
             <p className="kicker">Digital Presence</p>
           </div>
           <p className="prose">
-            Competitive intelligence and off-court refinement—built for modern
-            players who want clarity, structure, and tangible progress.
+            Competitive intelligence and off-court refinement—built for modern players
+            who want clarity, structure, and tangible progress.
           </p>
 
           <div className="grid">
             <div className="card">
               <h3>Match Analysis</h3>
               <p>
-                Video breakdowns, tactical notes, and actionable priorities—designed
-                to sharpen decision-making and execution.
+                Video breakdowns, tactical notes, and actionable priorities—designed to
+                sharpen decision-making and execution.
               </p>
               <ul className="clean">
                 <li>Patterns, shot selection, point construction</li>
@@ -91,8 +72,8 @@ export default function Home() {
             <div className="card">
               <h3>Tournament Intelligence</h3>
               <p>
-                Pre-match frameworks, opponent mapping, and post-match review—built
-                for consistency under pressure.
+                Pre-match frameworks, opponent mapping, and post-match review—built for
+                consistency under pressure.
               </p>
               <ul className="clean">
                 <li>Game plans + situational play</li>
@@ -104,8 +85,8 @@ export default function Home() {
             <div className="card">
               <h3>WFH Performance Workouts</h3>
               <p>
-                Tennis-specific strength, mobility, and recovery—quiet, structured,
-                and effective off-court.
+                Tennis-specific strength, mobility, and recovery—quiet, structured, and
+                effective off-court.
               </p>
               <ul className="clean">
                 <li>Stability, footwork strength, rotational power</li>
@@ -145,9 +126,9 @@ export default function Home() {
             <p className="kicker">Standing within the club</p>
           </div>
           <p className="prose">
-            Membership is structured to recognize engagement, progression, and
-            contribution within the club environment. Advancement reflects
-            participation and commitment to the standard.
+            Membership is structured to recognize engagement, progression, and contribution
+            within the club environment. Advancement reflects participation and commitment
+            to the standard.
           </p>
 
           <div className="grid">
@@ -193,24 +174,23 @@ export default function Home() {
             <p className="kicker">On-court presence</p>
           </div>
           <p className="prose">
-            Physical presence begins through curated residencies and private
-            cohorts—structured sessions designed to elevate execution, composure,
-            and competitive consistency.
+            Physical presence begins through curated residencies and private cohorts—structured
+            sessions designed to elevate execution, composure, and competitive consistency.
           </p>
 
           <div className="grid">
             <div className="card">
               <h3>Private Coaching</h3>
               <p>
-                Precision work for technical refinement, match discipline, and
-                progress with clear priorities.
+                Precision work for technical refinement, match discipline, and progress with clear
+                priorities.
               </p>
             </div>
             <div className="card">
               <h3>Training Blocks</h3>
               <p>
-                Focused multi-week intensives designed to produce measurable
-                outcomes in key performance areas.
+                Focused multi-week intensives designed to produce measurable outcomes in key performance
+                areas.
               </p>
             </div>
           </div>
@@ -223,11 +203,10 @@ export default function Home() {
             <p className="kicker">Invitation • Merit</p>
           </div>
           <p className="prose">
-            If you feel aligned with the environment, begin a conversation. A member
-            of the club will respond with next steps.
+            If you feel aligned with the environment, begin a conversation. A member of the club will
+            respond with next steps.
           </p>
 
-          {/* Static form (server-safe). Wire later to email/CRM. */}
           <form className="form" action="#" method="post">
             <input name="name" placeholder="Full Name" required />
             <input name="email" type="email" placeholder="Email" required />
