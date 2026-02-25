@@ -1,39 +1,10 @@
+import HeaderClient from "./components/HeaderClient";
+import ConsiderationFormClient from "./components/ConsiderationFormClient";
+
 export default function Home() {
   return (
     <>
-      <header className="header">
-        <div className="nav">
-          <a className="brand" href="#top">Players Only Club</a>
-
-          <nav className="navlinks" aria-label="Primary">
-            <a href="#standard">Philosophy</a>
-            <a href="#advisory">Analysis</a>
-            <a href="#membership">Membership</a>
-            <a href="#programs">Training</a>
-            <a href="#consideration">Contact</a>
-          </nav>
-
-          <div className="navcta">
-            <a className="pill" href="#consideration">Request Consideration</a>
-            <button className="menuBtn" type="button" aria-label="Open menu"
-              onClick={() => {
-                const panel = document.getElementById("mobilePanel");
-                panel?.classList.toggle("open");
-              }}
-            >
-              Menu
-            </button>
-          </div>
-        </div>
-
-        <div className="mobilePanel" id="mobilePanel" aria-label="Mobile Menu">
-          <a href="#standard">Philosophy</a>
-          <a href="#advisory">Analysis</a>
-          <a href="#membership">Membership</a>
-          <a href="#programs">Training</a>
-          <a href="#consideration">Contact</a>
-        </div>
-      </header>
+      <HeaderClient />
 
       <main id="top">
         {/* HERO */}
@@ -65,9 +36,11 @@ export default function Home() {
             <p className="kicker">Society • Discipline • Craft</p>
           </div>
           <p className="prose">
-            Players Only Club exists as a private environment dedicated to discipline, refinement, and excellence in the game.
-            Performance is shaped through presence, awareness, and deliberate practice—where every detail matters and progress
-            is measured by commitment to the craft. Entry is not defined by status, but by intention.
+            Players Only Club exists as a private environment dedicated to
+            discipline, refinement, and excellence in the game. Performance is
+            shaped through presence, awareness, and deliberate practice—where
+            every detail matters and progress is measured by commitment to the
+            craft. Entry is not defined by status, but by intention.
           </p>
         </section>
 
@@ -78,13 +51,17 @@ export default function Home() {
             <p className="kicker">Digital Presence</p>
           </div>
           <p className="prose">
-            Competitive intelligence and off-court refinement—built for modern players who want clarity, structure, and tangible progress.
+            Competitive intelligence and off-court refinement—built for modern
+            players who want clarity, structure, and tangible progress.
           </p>
 
           <div className="grid">
             <div className="card">
               <h3>Match Analysis</h3>
-              <p>Video breakdowns, tactical notes, and actionable priorities—designed to sharpen decision-making and execution.</p>
+              <p>
+                Video breakdowns, tactical notes, and actionable priorities—designed
+                to sharpen decision-making and execution.
+              </p>
               <ul className="clean">
                 <li>Patterns, shot selection, point construction</li>
                 <li>Positioning, tempo control, adjustments</li>
@@ -94,7 +71,10 @@ export default function Home() {
 
             <div className="card">
               <h3>Tournament Intelligence</h3>
-              <p>Pre-match frameworks, opponent mapping, and post-match review—built for consistency under pressure.</p>
+              <p>
+                Pre-match frameworks, opponent mapping, and post-match review—built
+                for consistency under pressure.
+              </p>
               <ul className="clean">
                 <li>Game plans + situational play</li>
                 <li>Opponent scouting framework</li>
@@ -104,7 +84,10 @@ export default function Home() {
 
             <div className="card">
               <h3>WFH Performance Workouts</h3>
-              <p>Tennis-specific strength, mobility, and recovery—quiet, structured, and effective off-court.</p>
+              <p>
+                Tennis-specific strength, mobility, and recovery—quiet, structured,
+                and effective off-court.
+              </p>
               <ul className="clean">
                 <li>Stability, footwork strength, rotational power</li>
                 <li>Mobility + resilience</li>
@@ -114,7 +97,10 @@ export default function Home() {
 
             <div className="card">
               <h3>Private Consultations</h3>
-              <p>Strategy sessions for season mapping, performance roadmaps, and accountability—precise and outcome-driven.</p>
+              <p>
+                Strategy sessions for season mapping, performance roadmaps, and
+                accountability—precise and outcome-driven.
+              </p>
               <ul className="clean">
                 <li>Training priorities</li>
                 <li>Competition calendar planning</li>
@@ -140,8 +126,9 @@ export default function Home() {
             <p className="kicker">Standing within the club</p>
           </div>
           <p className="prose">
-            Membership is structured to recognize engagement, progression, and contribution within the club environment.
-            Advancement reflects participation and commitment to the standard.
+            Membership is structured to recognize engagement, progression, and
+            contribution within the club environment. Advancement reflects
+            participation and commitment to the standard.
           </p>
 
           <div className="grid">
@@ -187,18 +174,25 @@ export default function Home() {
             <p className="kicker">On-court presence</p>
           </div>
           <p className="prose">
-            Physical presence begins through curated residencies and private cohorts—structured sessions designed to elevate execution,
-            composure, and competitive consistency.
+            Physical presence begins through curated residencies and private
+            cohorts—structured sessions designed to elevate execution, composure,
+            and competitive consistency.
           </p>
 
           <div className="grid">
             <div className="card">
               <h3>Private Coaching</h3>
-              <p>Precision work for technical refinement, match discipline, and progress with clear priorities.</p>
+              <p>
+                Precision work for technical refinement, match discipline, and
+                progress with clear priorities.
+              </p>
             </div>
             <div className="card">
               <h3>Training Blocks</h3>
-              <p>Focused multi-week intensives designed to produce measurable outcomes in key performance areas.</p>
+              <p>
+                Focused multi-week intensives designed to produce measurable
+                outcomes in key performance areas.
+              </p>
             </div>
           </div>
         </section>
@@ -210,21 +204,11 @@ export default function Home() {
             <p className="kicker">Invitation • Merit</p>
           </div>
           <p className="prose">
-            If you feel aligned with the environment, begin a conversation. A member of the club will respond with next steps.
+            If you feel aligned with the environment, begin a conversation. A member
+            of the club will respond with next steps.
           </p>
 
-          <form
-            className="form"
-            onSubmit={(e) => {
-              e.preventDefault();
-              alert("Submitted. Next: wire this to email/CRM.");
-            }}
-          >
-            <input name="name" placeholder="Full Name" required />
-            <input name="email" type="email" placeholder="Email" required />
-            <textarea name="message" rows={5} placeholder="Tell us what you're seeking (training, analysis, membership)" />
-            <button type="submit">Request Consideration</button>
-          </form>
+          <ConsiderationFormClient />
         </section>
       </main>
 
