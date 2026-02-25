@@ -1,7 +1,19 @@
 import "./globals.css";
-import type { Metadata } from "next";
+import { Bodoni_Moda, Manrope } from "next/font/google";
 
-export const metadata: Metadata = {
+const bodoni = Bodoni_Moda({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["400", "500", "600"],
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  display: "swap",
+  weight: ["300", "400", "500"],
+});
+
+export const metadata = {
   title: "Players Only Club",
   description: "Players Only Club — Virtus in ludo. A luxury performance society.",
 };
@@ -9,7 +21,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${manrope.className} ${bodoni.variable}`}>
+        {children}
+      </body>
     </html>
   );
 }
